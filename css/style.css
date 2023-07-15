@@ -15,35 +15,22 @@ body {
     justify-content: space-around;
     background: black;
 }
-/* .container-cover {
-    align-self: center;
-} */
+
 .container {
-    /* background: gray; */
-    border: 1px solid gray;
-    padding: 5px;
-    border-radius: 15px;
+    align-self: center;
+    padding: 10px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    align-self: center;
     width: 350px;
     height: 450px;
-    box-shadow: 0 0 30px rgb(143, 142, 142);
-    overflow: visible;
+    box-shadow: 0 0 20px 15px rgb(101, 154, 200);
 }
 
-.row {
+.buttons {
+    flex: 1;
     display: flex;
-    flex: 1 1 30px;
-    gap: 1px;
-    background-color: rgb(40, 40, 40);
-    /* overflow: hidden; */
-    background-color: rgb(55, 54, 54);
-}
-
-.row:last-child {
-    border-radius: 15px;
+    flex-wrap: wrap;
 }
 
 .display {
@@ -56,35 +43,34 @@ body {
     flex-basis: 80px;
     background-color: rgb(40, 40, 40);
     border: 1px solid gray;
-    border-radius: var(--border-radius);
-    margin-bottom: 5px;
-    /* border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius); */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
-.row > * {
-    flex: 1;
-    overflow: visible;
+.buttons > * {
+    flex: 1 0 25%;
     border: 1px solid grey;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* box-shadow: 0 0 10px grey; */
     transition: box-shadow 0.25s;
     background-color: black;
 }
 
-.row > *:hover {
-    box-shadow: 0 0 60px cyan;
+.buttons > *:hover {
+    box-shadow: 0 0 20px 8px cyan;
 }
-.row > *:active {
+.buttons > *:active {
     transform: scale(0.9);
+}
+.orange-column:hover {
+    box-shadow: 0 0 20px 8px orange;
 }
 
 .zero {
     flex: 1 0 50%;
-    border-bottom-left-radius: var(--border-radius);
+    border-bottom-left-radius: 18px;
 }
 
 .decimal,
@@ -93,7 +79,7 @@ body {
 }
 
 .equals {
-    border-bottom-right-radius: var(--border-radius);
+    border-bottom-right-radius: 18px;
 }
 
 .orange-column {
@@ -102,4 +88,7 @@ body {
 
 .dark-row {
     color: grey;
+}
+.dark-row:hover {
+    box-shadow: 0 0 20px 8px cadetblue;
 }
