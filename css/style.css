@@ -14,24 +14,22 @@ body {
     justify-content: space-around;
     background: black;
 }
-/* .container-cover {
-    align-self: center;
-} */
+
 .container {
-    /* border: 2px solid co; */
-    padding: 5px;
-    border-radius: 10px;
+    align-self: center;
+    padding: 10px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-self: center;
     width: 350px;
     height: 450px;
-    box-shadow: 0 0 30px rgb(143, 142, 142);
+    box-shadow: 0 0 20px 15px rgb(101, 154, 200);
 }
 
-.row {
+.buttons {
+    flex: 1;
     display: flex;
-    flex: 1 1 30px;
+    flex-wrap: wrap;
 }
 
 .display {
@@ -43,30 +41,32 @@ body {
     padding-right: 23px;
     flex-basis: 80px;
     border: 1px solid gray;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
-.row > * {
-    flex: 1;
+.buttons > * {
+    flex: 1 0 25%;
     border: 1px solid grey;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px grey;
     transition: box-shadow 0.25s;
 }
 
-.row > *:hover {
-    box-shadow: 0 0 30px cyan;
+.buttons > *:hover {
+    box-shadow: 0 0 20px 8px cyan;
 }
-.row > *:active {
+.buttons > *:active {
     transform: scale(0.9);
+}
+.orange-column:hover {
+    box-shadow: 0 0 20px 8px orange;
 }
 
 .zero {
     flex: 1 0 50%;
-    border-bottom-left-radius: 8px;
+    border-bottom-left-radius: 18px;
 }
 
 .decimal,
@@ -75,7 +75,7 @@ body {
 }
 
 .equals {
-    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 18px;
 }
 
 .orange-columns {
@@ -84,4 +84,7 @@ body {
 
 .dark-row {
     color: grey;
+}
+.dark-row:hover {
+    box-shadow: 0 0 20px 8px cadetblue;
 }
