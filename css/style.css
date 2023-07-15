@@ -1,14 +1,15 @@
 * {
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-    color: antiquewhite;
+    color: white;
     font-size: 25px;
     user-select: none;
+    --border-radius: 15px
 }
 
 body {
-    height: 100vh;
     margin: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -18,20 +19,31 @@ body {
     align-self: center;
 } */
 .container {
-    /* border: 2px solid co; */
+    /* background: gray; */
+    border: 1px solid gray;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
+    gap: 1px;
     align-self: center;
     width: 350px;
     height: 450px;
     box-shadow: 0 0 30px rgb(143, 142, 142);
+    overflow: visible;
 }
 
 .row {
     display: flex;
     flex: 1 1 30px;
+    gap: 1px;
+    background-color: rgb(40, 40, 40);
+    /* overflow: hidden; */
+    background-color: rgb(55, 54, 54);
+}
+
+.row:last-child {
+    border-radius: 15px;
 }
 
 .display {
@@ -42,23 +54,29 @@ body {
     align-items: center;
     padding-right: 23px;
     flex-basis: 80px;
+    background-color: rgb(40, 40, 40);
     border: 1px solid gray;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-radius: var(--border-radius);
+    margin-bottom: 5px;
+    /* border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius); */
 }
 
 .row > * {
     flex: 1;
+    overflow: visible;
     border: 1px solid grey;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px grey;
+    /* box-shadow: 0 0 10px grey; */
     transition: box-shadow 0.25s;
+    background-color: black;
 }
 
 .row > *:hover {
-    box-shadow: 0 0 30px cyan;
+    box-shadow: 0 0 60px cyan;
 }
 .row > *:active {
     transform: scale(0.9);
@@ -66,7 +84,7 @@ body {
 
 .zero {
     flex: 1 0 50%;
-    border-bottom-left-radius: 8px;
+    border-bottom-left-radius: var(--border-radius);
 }
 
 .decimal,
@@ -75,11 +93,11 @@ body {
 }
 
 .equals {
-    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: var(--border-radius);
 }
 
-.orange-columns {
-    color: rgb(242, 163, 60);
+.orange-column {
+    /* background-color:  rgb(248, 141, 0); */
 }
 
 .dark-row {
