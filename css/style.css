@@ -1,15 +1,14 @@
 * {
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-    color: white;
+    color: antiquewhite;
     font-size: 25px;
     user-select: none;
-    --border-radius: 15px
 }
 
 body {
-    margin: 0;
     height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -41,7 +40,6 @@ body {
     align-items: center;
     padding-right: 23px;
     flex-basis: 80px;
-    background-color: rgb(40, 40, 40);
     border: 1px solid gray;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -50,12 +48,10 @@ body {
 .buttons > * {
     flex: 1 0 25%;
     border: 1px solid grey;
-    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: box-shadow 0.25s;
-    background-color: black;
 }
 
 .buttons > *:hover {
@@ -82,8 +78,8 @@ body {
     border-bottom-right-radius: 18px;
 }
 
-.orange-column {
-    /* background-color:  rgb(248, 141, 0); */
+.orange-columns {
+    color: rgb(242, 163, 60);
 }
 
 .dark-row {
