@@ -4,6 +4,7 @@
     color: antiquewhite;
     font-size: 25px;
     user-select: none;
+    --border-radius: 10px
 }
 
 body {
@@ -18,7 +19,7 @@ body {
 .container {
     align-self: center;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -41,8 +42,8 @@ body {
     padding-right: 23px;
     flex-basis: 80px;
     border: 1px solid gray;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
 }
 
 .buttons > * {
@@ -66,7 +67,7 @@ body {
 
 .zero {
     flex: 1 0 50%;
-    border-bottom-left-radius: 18px;
+    border-bottom-left-radius: var(--border-radius);
 }
 
 .decimal,
@@ -75,7 +76,7 @@ body {
 }
 
 .equals {
-    border-bottom-right-radius: 18px;
+    border-bottom-right-radius: var(--border-radius);
 }
 
 .orange-columns {
