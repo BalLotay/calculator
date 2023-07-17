@@ -46,7 +46,8 @@ buttons.addEventListener("mouseup", (e) => {
   if (e.target.classList.contains("percent")) {
     display.textContent = (+display.textContent)/100;
   }
-  if (!isNaN(e.target.textContent)) {
+  if (e.target.classList.contains("number")) {
+  // if (!isNaN(e.target.textContent)) {
     changeDisplay(e);
   }
   if (e.target.classList.contains("operator")) {
