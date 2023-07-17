@@ -41,14 +41,14 @@ body {
     align-items: center;
     padding-right: 23px;
     flex-basis: 80px;
-    border: 1px solid gray;
+    border: 2px solid gray;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
 }
 
 .buttons > * {
     flex: 1 0 25%;
-    border: 1px solid grey;
+    border: 2px solid grey;
     display: flex;
     justify-content: center;
     align-items: center;
