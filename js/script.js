@@ -28,7 +28,7 @@ function displayResult(text, makeNull=false) {
   if (operator1) {
     console.log(operator1, result, +display.textContent);
     result = operate(operator1, result, +display.textContent);
-    display.textContent = result === Infinity ? "☠️" : result;
+    display.textContent = (result === Infinity || result === Nan) ? "☠️" : result;
   }
 
   result = +display.textContent;
@@ -64,11 +64,34 @@ buttons.addEventListener("mouseup", (e) => {
   }
 })
 
-// window.addEventListener("keypress", (e) => {
-//   if (!isNaN(e.key)) {
-//     changeDisplay(e.key)
-//   }
-// })
+window.addEventListener("keydown", (e) => {
+  if ((!isNaN(e.key) && e.key !== " ") || e.key === ".") {
+    changeDisplay(e.key);
+  }
+  switch (e.key) {
+    case "+":
+    case "-":
+      displayResult(e.key); break;
+    case "/":
+      displayResult("÷"); break;
+    case "*":
+      displayResult("×"); break;
+    case "=":
+    case "Enter":
+      displayResult("=", true); break;
+    case "%":
+      display.textContent = (+display.textContent)/100;
+    case "a":
+    case "A":
+    case "c":
+    case "C":
+      result = operator1 = null;
+      clearDisplay();
+    case "s":
+    case "S":
+      display.textContent = -(+display.textContent); 
+  }
+})
 
 function add(a, b) {
     return a + b;
