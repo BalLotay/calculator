@@ -4,10 +4,17 @@ const ac = document.querySelector(".ac");
 const operators = document.querySelectorAll(".operator")
 let toClear;
 let result, operator1;
+const re = /^0(\.)*/
 
 function changeDisplay(e) {
+  if ((display.textContent.match(re) || toClear) && 
+        e.target.textContent === ".") {
+    display.textContent = "0.";
+    toClear = false;
+    return;    
+  }
   if (display.textContent === "0" || toClear) {
-    display.textContent = ""
+    display.textContent = "";
   };
   display.textContent += e.target.textContent;
   toClear = false;
@@ -47,7 +54,6 @@ buttons.addEventListener("mouseup", (e) => {
     display.textContent = (+display.textContent)/100;
   }
   if (e.target.classList.contains("number")) {
-  // if (!isNaN(e.target.textContent)) {
     changeDisplay(e);
   }
   if (e.target.classList.contains("operator")) {
