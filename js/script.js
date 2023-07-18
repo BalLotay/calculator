@@ -6,9 +6,9 @@ let toClear;
 let result, operator1;
 const re = /^0(\.)*/
 
-function changeDisplay(e) {
+function changeDisplay(text) {
   if ((display.textContent.match(re) || toClear) && 
-        e.target.textContent === ".") {
+        text === ".") {
     display.textContent = "0.";
     toClear = false;
     return;    
@@ -16,7 +16,7 @@ function changeDisplay(e) {
   if (display.textContent === "0" || toClear) {
     display.textContent = "";
   };
-  display.textContent += e.target.textContent;
+  display.textContent += text;
   toClear = false;
 }
 
@@ -24,7 +24,7 @@ function clearDisplay() {
   display.textContent = "0";
 }
 
-function displayResult(e, makeNull=false) {
+function displayResult(text, makeNull=false) {
   if (operator1) {
     console.log(operator1, result, +display.textContent);
     result = operate(operator1, result, +display.textContent);
@@ -32,7 +32,7 @@ function displayResult(e, makeNull=false) {
   }
 
   result = +display.textContent;
-  operator1 = e.target.textContent;
+  operator1 = text;
   
   if (makeNull) {
     operator1 = null
@@ -54,15 +54,21 @@ buttons.addEventListener("mouseup", (e) => {
     display.textContent = (+display.textContent)/100;
   }
   if (e.target.classList.contains("number")) {
-    changeDisplay(e);
+    changeDisplay(e.target.textContent);
   }
   if (e.target.classList.contains("operator")) {
-    displayResult(e)
+    displayResult(e.target.textContent)
   }
   if (e.target.classList.contains("equals")) {
-    displayResult(e, true);
+    displayResult(e.target.textContent, true);
   }
 })
+
+// window.addEventListener("keypress", (e) => {
+//   if (!isNaN(e.key)) {
+//     changeDisplay(e.key)
+//   }
+// })
 
 function add(a, b) {
     return a + b;
