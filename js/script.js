@@ -28,7 +28,7 @@ function displayResult(text, makeNull=false) {
   if (operator1) {
     console.log(operator1, result, +display.textContent);
     result = operate(operator1, result, +display.textContent);
-    display.textContent = (result === Infinity || result === Nan) ? "☠️" : result;
+    display.textContent = (result === Infinity || result === NaN) ? "☠️" : result;
   }
 
   result = +display.textContent;
