@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: antiquewhite;
     font-size: 25px;
     user-select: none;
@@ -34,9 +34,10 @@ body {
 }
 
 .display-container {
+    display: flex;
+    justify-content: flex-end;
     flex-basis: 80px;
-    border: 2px solid red;
-    border: 2px solid gray;
+    min-height: 80px;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
 }
@@ -46,41 +47,38 @@ body {
     text-align: end;
     line-height: 80px;
     font-size: 40px;
-    margin: 0 20px;
+    margin-left: 15px;
+    margin-right: 28px;
     overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .buttons > * {
     flex: 1 0 25%;
-    border: 2px solid grey;
     display: flex;
+    border-radius: var(--border-radius);
     justify-content: center;
     align-items: center;
     transition: box-shadow 0.25s;
 }
 
 .buttons > *:hover {
-    box-shadow: 0 0 20px 8px cyan;
+    box-shadow: 0 0 10px 8px cyan;
 }
 .buttons > *:active {
     transform: scale(0.9);
 }
 .orange-column:hover {
-    box-shadow: 0 0 20px 8px orange;
+    box-shadow: 0 0 10px 8px orange;
 }
 
 .zero {
     flex: 1 0 50%;
-    border-bottom-left-radius: var(--border-radius);
 }
 
 .decimal,
 .equals {
     flex-basis: 25%;
-}
-
-.equals {
-    border-bottom-right-radius: var(--border-radius);
 }
 
 .orange-columns {
@@ -91,5 +89,5 @@ body {
     color: grey;
 }
 .dark-row:hover {
-    box-shadow: 0 0 20px 8px cadetblue;
+    box-shadow: 0 0 10px 8px cadetblue;
 }
