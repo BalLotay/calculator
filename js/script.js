@@ -27,8 +27,8 @@ function clearDisplay() {
 function displayResult(e, makeNull=false) {
   if (operator1) {
     console.log(operator1, result, +display.textContent);
-    result = operate(operator1, result, +display.textContent)
-    display.textContent = result;
+    result = operate(operator1, result, +display.textContent);
+    display.textContent = result === Infinity ? "☠️" : result;
   }
 
   result = +display.textContent;
