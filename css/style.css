@@ -33,17 +33,21 @@ body {
     flex-wrap: wrap;
 }
 
-.display {
-    color: aquamarine;
-    font-size: 40px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 23px;
+.display-container {
     flex-basis: 80px;
+    border: 2px solid red;
     border: 2px solid gray;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
+}
+
+.display {
+    color: aquamarine;
+    text-align: end;
+    line-height: 80px;
+    font-size: 40px;
+    margin: 0 20px;
+    overflow: hidden;
 }
 
 .buttons > * {
