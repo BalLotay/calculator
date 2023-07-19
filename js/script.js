@@ -82,17 +82,27 @@ window.addEventListener("keydown", (e) => {
     case "Enter":
       displayResult("=", true); break;
     case "%":
-      display.textContent = (+display.textContent)/100;
+      display.textContent = (+display.textContent)/100; break;
     case "a":
     case "A":
+      result = operator1 = null;
+      clearDisplay(); break;
     case "c":
     case "C":
-      result = operator1 = null;
-      clearDisplay();
+      navigator.clipboard.writeText(display.textContent); break;
     case "s":
     case "S":
-      display.textContent = -(+display.textContent); 
+      display.textContent = -(+display.textContent); break;
+    case "Backspace":
+      let text = display.textContent;
+      if (text === "0")       {break;}
+      if (text.length === 1)  {display.textContent = "0"; break;}
+      display.textContent = text.substring(0,text.length-1); break;
   }
+})
+
+display.addEventListener("click", () => {
+  navigator.clipboard.writeText(display.textContent);
 })
 
 darkMode.addEventListener("click", () => {
