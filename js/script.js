@@ -1,7 +1,9 @@
+const body = document.querySelector("body");
 const display = document.querySelector(".display");
 const buttons = document.querySelector(".buttons")
 const ac = document.querySelector(".ac");
-const operators = document.querySelectorAll(".operator")
+const operators = document.querySelectorAll(".operator");
+const darkMode = document.querySelector("svg");
 let toClear;
 let result, operator1;
 const re = /^0(\.)*/
@@ -91,6 +93,10 @@ window.addEventListener("keydown", (e) => {
     case "S":
       display.textContent = -(+display.textContent); 
   }
+})
+
+darkMode.addEventListener("click", () => {
+  body.classList.toggle("light-mode");
 })
 
 function add(a, b) {
