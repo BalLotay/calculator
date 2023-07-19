@@ -49,23 +49,27 @@ function displayResult(text, makeNull=false) {
 buttons.addEventListener("mouseup", doStuffFirst)
 
 function doStuffFirst(e) {
+  let button;
   if (e instanceof KeyboardEvent) {
-    let button = document.querySelector(`[data-key="${e.key}"]`);
+    button = document.querySelector(`[data-key="${e.key}"]`);
     if (!button) {
       button = document.querySelector(`[data-key="${e.key.toLowerCase()}"]`);
     }
     if (button) {
-      doStuff(button)
+      doStuffSecond(button)
     }
   }
   if (e instanceof MouseEvent) {
+    button = e.target
+    console.log(button);
     // console.log(e.target);
-    doStuff(e.target);
+    // doStuff(e.target);
+    doStuffSecond(button)
   }
 }
 
 function doStuff(element) {
-  console.log(element.classList);
+  console.log(element.dataset.key);
   switch (true) {
     case element.classList.contains("ac"):
         result = operator1 = null;
@@ -144,6 +148,47 @@ window.addEventListener("keydown", doStuffFirst)
 //       cheatSheet.classList.toggle("block"); break;
 //   }
 // })
+
+function doStuffSecond(element) {
+    let keyText = element.dataset.key;
+
+    if ((!isNaN(keyText) && keyText !== " ") || keyText === ".") {
+      changeDisplay(keyText);
+      return;
+    }
+
+    switch (keyText) {
+      case "+":
+      case "-":
+      case "/":
+      case "*":
+        displayResult(keyText); break;
+      case "=":
+      case "Enter":
+        displayResult(keyText, true); break;
+      case "%":
+      case "p":
+        display.textContent = (+display.textContent)/100; break;
+      case "a":
+        result = operator1 = null;
+        clearDisplay(); break;
+      case "c":
+        navigator.clipboard.writeText(display.textContent); break;
+      case "v":
+        paste(display); break;
+      case "s":
+        display.textContent = -(+display.textContent); break;
+      case "m":
+        body.classList.toggle("light-mode"); break;
+      case "Backspace":
+        let text = display.textContent;
+        if (text === "0")       {break;}
+        if (text.length === 1)  {display.textContent = "0"; break;}
+        display.textContent = text.substring(0,text.length-1); break;
+      case " ":
+        cheatSheet.classList.toggle("block"); break;
+    }
+  }
 
 window.addEventListener("transitionend", (e) => {
   if (e.target.classList.contains("number-click")) {

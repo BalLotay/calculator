@@ -6,14 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-key="m">
     <script src="js/script.js" defer></script>
     <div class="header">
         <div class="dark-mode-container" title="Toggle light/dark mode">
             <svg width="25px" height="25px" viewBox="-0.72 -0.72 25.44 25.44" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.144"></g><g id="SVGRepo_iconCarrier"> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 11.5373 21.3065 11.4608 21.0672 11.8568C19.9289 13.7406 17.8615 15 15.5 15C11.9101 15 9 12.0899 9 8.5C9 6.13845 10.2594 4.07105 12.1432 2.93276C12.5392 2.69347 12.4627 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
                 fill="var(--clr-text)"></path> </g></svg>
         </div>
-        <div class="cheatsheet-container">
+        <div data-key=" " class="cheatsheet-container">
             <svg class="cheatsheet-icon" width="25px" height="25px" viewBox="0 0 21.00 21.00" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="2.1"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m12.5 3.5-4 14" fill="none" 
                 stroke="var(--clr-text)" stroke-linecap="round" stroke-linejoin="round"></path></g>
             </svg>
@@ -38,9 +38,9 @@
     </div>
     <div class="container">
         <div class="display-container">
-            <div class="display" title="Click to copy (or press c/C)">0</div>
+            <div data-key="Backspace" class="display" title="Click to copy (or press c/C)">0</div>
         </div>
-        <div class="buttons">
+        <div class="buttons" data-key="Enter">
             <div data-key="a" data-key="A" class="dark-row ac" title="Clear (Press a/A)">AC</div>
             <div data-key="s" class="dark-row change-sign" title="Change sign (Press s/S)">+/-</div>
             <div data-key="%" class="dark-row percent" title="Percent (Press %)">%</div>
@@ -62,7 +62,7 @@
             <div data-key="=" data-key="Enter" class="orange-column equals" title="Equals (Press = or Enter)">=</div>
         </div>
     </div>
-    <div class="footer">
+    <div data-key="p" class="footer">
         <a href="https://github.com/BalLotay">
             <svg width="25px" height="25px" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" 
