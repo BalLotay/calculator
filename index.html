@@ -9,33 +9,57 @@
 <body>
     <script src="js/script.js" defer></script>
     <div class="header">
-        <svg width="25px" height="25px" viewBox="-0.72 -0.72 25.44 25.44" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.144"></g><g id="SVGRepo_iconCarrier"> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 11.5373 21.3065 11.4608 21.0672 11.8568C19.9289 13.7406 17.8615 15 15.5 15C11.9101 15 9 12.0899 9 8.5C9 6.13845 10.2594 4.07105 12.1432 2.93276C12.5392 2.69347 12.4627 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
-            fill="var(--clr-text)"></path> </g></svg>
+        <div class="dark-mode-container" title="Toggle light/dark mode">
+            <svg width="25px" height="25px" viewBox="-0.72 -0.72 25.44 25.44" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.144"></g><g id="SVGRepo_iconCarrier"> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 11.5373 21.3065 11.4608 21.0672 11.8568C19.9289 13.7406 17.8615 15 15.5 15C11.9101 15 9 12.0899 9 8.5C9 6.13845 10.2594 4.07105 12.1432 2.93276C12.5392 2.69347 12.4627 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
+                fill="var(--clr-text)"></path> </g></svg>
+        </div>
+        <div class="cheatsheet-container">
+            <svg class="cheatsheet-icon" width="25px" height="25px" viewBox="0 0 21.00 21.00" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="2.1"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m12.5 3.5-4 14" fill="none" 
+                stroke="var(--clr-text)" stroke-linecap="round" stroke-linejoin="round"></path></g>
+            </svg>
+            <ul class="cheatsheet">
+                <li><span>Add</span><span>+</span></li>
+                <li><span>Subtract</span><span>-</span></li>
+                <li><span>Multiply</span><span>*</span></li>
+                <li><span>Divide</span><span>/</span></li>
+                <li><span>Equals</span><span>= or ⏎</span></li>
+                <li><span class="no-color">_</span></li>
+                <li><span>AC</span><span>a/A</span></li>
+                <li><span>+/-</span><span>s/S</span></li>
+                <li><span>%</span><span>% or p/P</span></li>
+                <li><span class="no-color">_</span></li>
+                <li><span>Copy</span><span>c/C</span></li>
+                <li><span>Paste</span><span>v/V</span></li>
+                <li><span>Backspace</span><span>⌫</span></li>
+                <li><span>Light/Dark Mode</span><span>m/M</span></li>
+                <li><span>Show this cheatsheet</span><span>␣</span></li>
+            </ul>
+        </div>
     </div>
     <div class="container">
         <div class="display-container">
             <div class="display" title="Click to copy (or press c/C)">0</div>
         </div>
         <div class="buttons">
-            <div class="dark-row ac" title="Clear (Press a/A)">AC</div>
-            <div class="dark-row change-sign" title="Change sign (Press s/S)">+/-</div>
-            <div class="dark-row percent" title="Percent (Press %)">%</div>
-            <div class="operator orange-column divide" title="Divide (Press /)">÷</div>
-            <div class="number seven">7</div>
-            <div class="number eight">8</div>
-            <div class="number nine">9</div>
-            <div class="operator orange-column multiply" title="Multiply (Press *)">×</div>
-            <div class="number four">4</div>
-            <div class="number five">5</div>
-            <div class="number six">6</div>
-            <div class="operator orange-column subtract" title="Subtract (Press -)">-</div>
-            <div class="number one">1</div>
-            <div class="number two">2</div>
-            <div class="number three">3</div>
-            <div class="operator orange-column add" title="Add (Press +)">+</div>
-            <div class="number zero">0</div>
-            <div class="number decimal">.</div>
-            <div class="orange-column equals" title="Equals (Press = or Enter)">=</div>
+            <div data-key="a" data-key="A" class="dark-row ac" title="Clear (Press a/A)">AC</div>
+            <div data-key="s" class="dark-row change-sign" title="Change sign (Press s/S)">+/-</div>
+            <div data-key="%" class="dark-row percent" title="Percent (Press %)">%</div>
+            <div data-key="/" class="operator orange-column divide" title="Divide (Press /)">÷</div>
+            <div data-key="7" class="number seven">7</div>
+            <div data-key="8" class="number eight">8</div>
+            <div data-key="9" class="number nine">9</div>
+            <div data-key="*" class="operator orange-column multiply" title="Multiply (Press *)">×</div>
+            <div data-key="4" class="number four">4</div>
+            <div data-key="5" class="number five">5</div>
+            <div data-key="6" class="number six">6</div>
+            <div data-key="-" class="operator orange-column subtract" title="Subtract (Press -)">-</div>
+            <div data-key="1" class="number one">1</div>
+            <div data-key="2" class="number two">2</div>
+            <div data-key="3" class="number three">3</div>
+            <div data-key="+" class="operator orange-column add" title="Add (Press +)">+</div>
+            <div data-key="0" class="number zero">0</div>
+            <div data-key="." class="number decimal">.</div>
+            <div data-key="=" data-key="Enter" class="orange-column equals" title="Equals (Press = or Enter)">=</div>
         </div>
     </div>
     <div class="footer">
