@@ -95,7 +95,10 @@ function doStuffIfButtonExists(element) {
         result = operator = null;
         clearDisplay(); break;
       case "c":
-        navigator.clipboard.writeText(display.textContent); break;
+        let currentText = display.textContent;
+        navigator.clipboard.writeText(display.textContent);
+        display.textContent = "✅";
+        setTimeout(() => {display.textContent = currentText}, 300); break;
       case "v":
         paste(display); break;
       case "s":
