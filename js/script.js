@@ -29,10 +29,11 @@ function clearDisplay() {
 }
 
 function displayResult(text, makeNull=false) {
+  console.log(operator1);
   if (operator1) {
     console.log(operator1, result, +display.textContent);
     result = operate(operator1, result, +display.textContent);
-    display.textContent = (result === Infinity || result === NaN) ? "☠️" : result;
+    display.textContent = (result === Infinity || isNaN(result)) ? "☠️" : result;
   }
 
   result = +display.textContent;
@@ -78,9 +79,11 @@ function doStuffIfButtonExists(element) {
     switch (keyText) {
       case "+":
       case "-":
-      case "/":
-      case "*":
         displayResult(keyText); break;
+      case "/":
+        displayResult("÷"); break;
+      case "*":
+        displayResult("×"); break;
       case "=":
       case "Enter":
         displayResult(keyText, true); break;
