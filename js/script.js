@@ -1,13 +1,10 @@
 const body = document.querySelector("body");
 const display = document.querySelector(".display");
 const buttons = document.querySelector(".buttons");
-const numbers = document.querySelectorAll(".number")
-const ac = document.querySelector(".ac");
-const operators = document.querySelectorAll(".operator");
 const darkMode = document.querySelector("svg");
 const cheatSheet = document.querySelector(".cheatsheet");
 let toClear;
-let result, operator1;
+let result, operator;
 const re = /^0(\.)*/
 
 function changeDisplay(text) {
@@ -29,37 +26,35 @@ function clearDisplay() {
 }
 
 function displayResult(text, makeNull=false) {
-  console.log(operator1);
-  if (operator1) {
-    console.log(operator1, result, +display.textContent);
-    result = operate(operator1, result, +display.textContent);
+  console.log(operator);
+  if (operator) {
+    console.log(operator, result, +display.textContent);
+    result = operate(operator, result, +display.textContent);
     display.textContent = (result === Infinity || isNaN(result)) ? "☠️" : result;
   }
 
   result = +display.textContent;
-  operator1 = text;
+  operator = text;
   
   if (makeNull) {
-    operator1 = null
+    operator = null
   }
 
   toClear = true;
-  console.table(operator1, result);
+  console.table(operator, result);
 }
-
 
 function checkIfButtonExists(e) {
   let button;
   if (e instanceof KeyboardEvent) {
-    button = document.querySelector(`[data-key="${e.key}"]`);
-    if (!button) {
-      button = document.querySelector(`[data-key="${e.key.toLowerCase()}"]`);
+    button = document.querySelector(`[data-key="${e.key}"]`) ?
+              document.querySelector(`[data-key="${e.key.toLowerCase()}"]`) :
+                document.querySelector(`[data-other-key="${e.key}"]`);
     }
-  }
   else if (e instanceof MouseEvent) {
     button = e.target;
   }
-  
+
   if (button) doStuffIfButtonExists(button);
 }
 
@@ -74,6 +69,12 @@ function doStuffIfButtonExists(element) {
       element.classList.add("number-click");
       changeDisplay(keyText);
       return;
+    }
+    if (element.classList.contains("orange-column")) {
+      element.classList.add("orange-column-click");
+    }
+    if (element.classList.contains("dark-row")) {
+      element.classList.add("dark-row-click");
     }
 
     switch (keyText) {
@@ -91,7 +92,7 @@ function doStuffIfButtonExists(element) {
       case "p":
         display.textContent = (+display.textContent)/100; break;
       case "a":
-        result = operator1 = null;
+        result = operator = null;
         clearDisplay(); break;
       case "c":
         navigator.clipboard.writeText(display.textContent); break;
@@ -114,6 +115,12 @@ function doStuffIfButtonExists(element) {
 window.addEventListener("transitionend", (e) => {
   if (e.target.classList.contains("number-click")) {
     e.target.classList.remove("number-click");
+  }
+  if (e.target.classList.contains("orange-column-click")) {
+    e.target.classList.remove("orange-column-click");
+  }
+  if (e.target.classList.contains("dark-row-click")) {
+    e.target.classList.remove("dark-row-click");
   }
 })
 

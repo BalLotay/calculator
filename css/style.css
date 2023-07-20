@@ -154,20 +154,18 @@ svg:hover {
     box-shadow: 0 0 10px 8px var(--clr-accent);
 }
 .buttons > *:active,
-.number-click {
+.number-click,
+.orange-column-click,
+.dark-row-click {
     transform: scale(0.9);
 }
-.orange-column:hover {
+.orange-column:hover,
+.orange-column-click {
     box-shadow: 0 0 10px 8px orange;
 }
 
 .zero {
     flex: 1 0 50%;
-}
-
-.decimal,
-.equals {
-    flex-basis: 25%;
 }
 
 .orange-columns {
@@ -177,6 +175,7 @@ svg:hover {
 .dark-row {
     color: grey;
 }
-.dark-row:hover {
+.dark-row:hover,
+.dark-row-click {
     box-shadow: 0 0 10px 8px cadetblue;
 }
