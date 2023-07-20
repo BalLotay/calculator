@@ -17,6 +17,9 @@ function changeDisplay(text) {
   if (display.textContent === "0" || toClear) {
     display.textContent = "";
   };
+  if (display.textContent.includes(".") && text === ".") {
+    return;
+  }
   display.textContent += text;
   toClear = false;
 }
@@ -47,9 +50,10 @@ function displayResult(text, makeNull=false) {
 function checkIfButtonExists(e) {
   let button;
   if (e instanceof KeyboardEvent) {
-    button = document.querySelector(`[data-key="${e.key}"]`) ?
-              document.querySelector(`[data-key="${e.key.toLowerCase()}"]`) :
-                document.querySelector(`[data-other-key="${e.key}"]`);
+    let a = document.querySelector(`[data-key="${e.key}"]`);
+    let b = document.querySelector(`[data-key="${e.key.toLowerCase()}"]`);
+    let c = document.querySelector(`[data-other-key="${e.key}"]`);
+    button = a || b || c;
     }
   else if (e instanceof MouseEvent) {
     button = e.target;
@@ -140,7 +144,6 @@ async function paste(input) {
   if (!isNaN(text) && text !== "") {
     input.textContent = text;
   }
-  console.log(text);
 }
 
 function add(a, b) {
